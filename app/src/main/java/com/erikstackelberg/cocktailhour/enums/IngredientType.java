@@ -1,6 +1,7 @@
 package com.erikstackelberg.cocktailhour.enums;
 
 public enum IngredientType {
+    ALL("All"),
     SPIRIT("Spirit"),
     SURYP("Suryp"),
     BITTERS("Bitters"),

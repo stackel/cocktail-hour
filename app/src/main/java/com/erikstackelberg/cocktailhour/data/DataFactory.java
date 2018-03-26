@@ -37,8 +37,17 @@ public class DataFactory {
                         new Ingredient("Maple Syrup", "Syrup from the maple tree.", IngredientType.SURYP);
                 realm.copyToRealmOrUpdate(mapleSyrup);
 
+                Ingredient redVermouth =
+                        new Ingredient("Red Vermouth", "Fortified wine.", IngredientType.FORTIFIED_WINE);
+
+                Ingredient campari =
+                        new Ingredient("Campari", "Bitter herbal liqueur.", IngredientType.BITTER);
+
                 Ingredient orange =
                         new Ingredient("Orange", "Citrus.", IngredientType.CITRUS);
+
+                Ingredient lemon =
+                        new Ingredient("Lemon", "Citrus,", IngredientType.CITRUS);
 
                 //Drinks
                 Drink oldFashioned = new Drink();
@@ -63,6 +72,16 @@ public class DataFactory {
                 mapleOldFashioned.setFavourite(true);
                 realm.copyToRealmOrUpdate(mapleOldFashioned);
 
+                Drink boulevardier = new Drink();
+                boulevardier.setName("Boulevardier");
+                boulevardier.setInstructions("Stir and strain over ice in old fashioned glass. Express orange peel over drink and drop in");
+                boulevardier.addDrinkIngredient(new DrinkIngredient(bourbon, 60.0, Unit.ML));
+                boulevardier.addDrinkIngredient(new DrinkIngredient(redVermouth, 30.0, Unit.ML));
+                boulevardier.addDrinkIngredient(new DrinkIngredient(campari, 30.0, Unit.ML));
+                boulevardier.addDrinkIngredient(new DrinkIngredient(orange, 1.0, Unit.PEEL));
+                boulevardier.setHasTried(true);
+                boulevardier.setFavourite(true);
+                realm.copyToRealmOrUpdate(boulevardier);
 
             }
         });

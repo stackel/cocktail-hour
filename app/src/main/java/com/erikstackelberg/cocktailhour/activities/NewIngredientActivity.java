@@ -14,6 +14,8 @@ import com.erikstackelberg.cocktailhour.R;
 import com.erikstackelberg.cocktailhour.enums.IngredientType;
 import com.erikstackelberg.cocktailhour.models.Ingredient;
 
+import java.util.Arrays;
+
 import io.realm.Realm;
 
 public class NewIngredientActivity extends AppCompatActivity {
@@ -54,7 +56,7 @@ public class NewIngredientActivity extends AppCompatActivity {
 
         ingredientTypeSpinner = (Spinner) findViewById(R.id.new_ingredient_type_spinner);
         ingredientSpinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,
-                IngredientType.values());
+                Arrays.copyOfRange(IngredientType.values(), 1, IngredientType.values().length));
         ingredientTypeSpinner.setAdapter(ingredientSpinnerAdapter);
 
         Button createIngredientButton = (Button) findViewById(R.id.new_ingredient_create_button);
