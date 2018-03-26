@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.erikstackelberg.cocktailhour.activities.NewDrinkActivity"
+    tools:showIn="@layout/activity_new_drink"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:orientation="vertical"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/new_drink_name_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/new_drink_name_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/new_drink_instructions_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/new_drink_instructions_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Instructions" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:id="@+id/new_drink_ingredients_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/new_drink_add_ingredient_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ADD INGREDIENT"/>
+
+        <Button
+            android:id="@+id/new_drink_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SAVE"/>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>
+

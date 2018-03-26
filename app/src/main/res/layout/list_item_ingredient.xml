@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="ingredient"
+            type="com.erikstackelberg.cocktailhour.models.Ingredient"/>
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="@dimen/activity_vertical_margin">
+        <TextView
+            android:textColor="@color/colorAccent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Bourbon"
+            android:text="@{ingredient.name}"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:layout_marginBottom="6dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="American corn whiskey"
+            android:text="@{ingredient.ingredientType.name()}"
+            android:textSize="14sp"
+            android:layout_marginBottom="20dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorAccent"
+            android:layout_marginBottom="0dp"/>
+    </LinearLayout>
+</layout>

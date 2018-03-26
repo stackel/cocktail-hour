@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="drinkIngredient"
+            type="com.erikstackelberg.cocktailhour.models.DrinkIngredient"/>
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Bourbon"
+            android:textSize="20sp"
+            android:textColor="@color/colorAccent"
+            android:text="@{drinkIngredient.ingredient.name}"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="2 oz"
+            android:textSize="14sp"
+            android:text="@{drinkIngredient.getAmountFormatted() + ' ' + drinkIngredient.unit}"/>
+    </LinearLayout>
+</layout>
