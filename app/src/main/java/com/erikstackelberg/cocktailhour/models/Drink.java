@@ -14,6 +14,8 @@ public class Drink extends RealmObject {
     private String id;
     private String name;
     private String instructions;
+    private String variations;
+    private String description;
     private RealmList<DrinkIngredient> drinkIngredients = new RealmList<>();
     private boolean favourite = false;
     private boolean hasTried = false;
@@ -44,6 +46,26 @@ public class Drink extends RealmObject {
 
     public void setInstructions(String instructions) {
         this.instructions = instructions;
+    }
+
+    public String getVariations() {
+        return variations;
+    }
+
+    public void setVariations(String variations) {
+        this.variations = variations;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public boolean isHasTried() {
+        return hasTried;
     }
 
     public RealmList<DrinkIngredient> getDrinkIngredients() {
