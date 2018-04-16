@@ -8,27 +8,39 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.erikstackelberg.cocktailhour.BR;
 import com.erikstackelberg.cocktailhour.R;
 import com.erikstackelberg.cocktailhour.models.Drink;
+import com.erikstackelberg.cocktailhour.models.Ingredient;
+
+import java.util.ArrayList;
 
 import io.realm.OrderedRealmCollection;
+import io.realm.Realm;
 import io.realm.RealmRecyclerViewAdapter;
+import io.realm.RealmResults;
 
 public class DrinkListAdapter extends RealmRecyclerViewAdapter<Drink, DrinkListAdapter.DrinksViewHolder>  {
     private OnItemClickListener listener;
+    private RealmResults<Ingredient> allIngredients;
 
     public DrinkListAdapter(@Nullable OrderedRealmCollection<Drink> data,
                             boolean autoUpdate, OnItemClickListener listener) {
         super(data, autoUpdate);
         this.listener = listener;
+        Realm realm = Realm.getDefaultInstance();
+        allIngredients = realm.where(Ingredient.class).equalTo("hasIngredient", true).findAll();
+        realm.close();
     }
 
     @Override
     public DrinksViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new DrinksViewHolder(DataBindingUtil.inflate(
+        DrinksViewHolder viewHolder = new DrinksViewHolder(DataBindingUtil.inflate(
                 LayoutInflater.from(parent.getContext()), R.layout.list_item_drink, parent, false));
+
+        return viewHolder ;
     }
 
     @Override

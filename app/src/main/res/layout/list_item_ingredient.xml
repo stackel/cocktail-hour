@@ -31,7 +31,13 @@
             android:layout_height="wrap_content"
             tools:text="American corn whiskey"
             android:text="@{ingredient.ingredientType.toString()}"
-            android:textSize="14sp"
+            android:textSize="14sp" />
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/list_item_ingredient_has_ingredient"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Has ingredient"
+            android:checked="@{ingredient.hasIngredient}"
             android:layout_marginBottom="20dp"/>
 
         <View

@@ -15,12 +15,18 @@ public class Ingredient extends RealmObject {
     private String name;
     private String description;
     private String ingredientType;
+    private boolean hasIngredient;
 
     public Ingredient(String name, String description, IngredientType ingredientType){
+        this(name, description, ingredientType, false);
+    }
+
+    public Ingredient(String name, String description, IngredientType ingredientType, boolean hasIngredient){
         id = UUID.randomUUID().toString();
         setName(name);
         setDescription(description);
         setIngredientType(ingredientType);
+        setHasIngredient(hasIngredient);
     }
 
     public Ingredient() {
@@ -60,6 +66,14 @@ public class Ingredient extends RealmObject {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public boolean hasIngredient() {
+        return this.hasIngredient;
+    }
+
+    public void setHasIngredient(boolean hasIngredient) {
+        this.hasIngredient = hasIngredient;
     }
 
     @Override

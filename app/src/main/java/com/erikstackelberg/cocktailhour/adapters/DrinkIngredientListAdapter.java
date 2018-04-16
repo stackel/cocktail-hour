@@ -10,15 +10,19 @@ import android.view.ViewGroup;
 
 import com.erikstackelberg.cocktailhour.BR;
 import com.erikstackelberg.cocktailhour.R;
+import com.erikstackelberg.cocktailhour.models.Drink;
 import com.erikstackelberg.cocktailhour.models.DrinkIngredient;
+import com.erikstackelberg.cocktailhour.models.Ingredient;
 
 import io.realm.OrderedRealmCollection;
 import io.realm.RealmRecyclerViewAdapter;
 
 
 public class DrinkIngredientListAdapter extends RealmRecyclerViewAdapter<DrinkIngredient, DrinkIngredientListAdapter.DrinkIngredientsViewHolder> {
-    public DrinkIngredientListAdapter(@Nullable OrderedRealmCollection<DrinkIngredient> data, boolean autoUpdate) {
+    private OnItemClickListener listener;
+    public DrinkIngredientListAdapter(@Nullable OrderedRealmCollection<DrinkIngredient> data, boolean autoUpdate, OnItemClickListener listener) {
         super(data, autoUpdate);
+        this.listener = listener;
     }
 
     @Override
@@ -29,8 +33,19 @@ public class DrinkIngredientListAdapter extends RealmRecyclerViewAdapter<DrinkIn
     }
 
     @Override
-    public void onBindViewHolder(DrinkIngredientsViewHolder holder, int position) {
+    public void onBindViewHolder(final DrinkIngredientsViewHolder holder, int position) {
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onItemClick(getItem(holder.getAdapterPosition()).getIngredient());
+            }
+        });
         holder.bind(getItem(position));
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(Ingredient ingredient);
     }
 
     class DrinkIngredientsViewHolder extends RecyclerView.ViewHolder {

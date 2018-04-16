@@ -14,9 +14,7 @@ import android.widget.Spinner;
 import com.erikstackelberg.cocktailhour.R;
 import com.erikstackelberg.cocktailhour.activities.IngredientDetailActivity;
 import com.erikstackelberg.cocktailhour.adapters.IngredientListAdapter;
-import com.erikstackelberg.cocktailhour.enums.Filter;
 import com.erikstackelberg.cocktailhour.enums.IngredientType;
-import com.erikstackelberg.cocktailhour.models.Drink;
 import com.erikstackelberg.cocktailhour.models.Ingredient;
 
 import io.realm.Realm;
@@ -41,13 +39,27 @@ public class IngredientsListFragment extends Fragment {
 
         RecyclerView recyclerView = view.findViewById(R.id.ingredient_recycler_view);
 
-        final IngredientListAdapter ingredientListAdapter = new IngredientListAdapter(getIngredients(IngredientType.ALL), true,
+        final IngredientListAdapter ingredientListAdapter = new IngredientListAdapter(
+                getIngredients(IngredientType.ALL), true,
                 new IngredientListAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(Ingredient item) {
+                        Intent intent = new Intent(getContext(), IngredientDetailActivity.class);
+                        intent.putExtra("INGREDIENT_ID", item.getId());
+                        startActivity(intent);
+                    }
+                }, new IngredientListAdapter.OnCheckboxClickListener() {
             @Override
-            public void onItemClick(Ingredient item) {
-                Intent intent = new Intent(getContext(), IngredientDetailActivity.class);
-                intent.putExtra("INGREDIENT_ID", item.getId());
-                startActivity(intent);
+            public void onCheckBoxClick(final Ingredient item, final boolean newValue) {
+                if(newValue != item.hasIngredient()) {
+                    realm.executeTransaction(new Realm.Transaction() {
+                        @Override
+                        public void execute(Realm realm) {
+                            item.setHasIngredient(newValue);
+                            realm.copyToRealmOrUpdate(item);
+                        }
+                    });
+                }
             }
         });
 
@@ -73,7 +85,6 @@ public class IngredientsListFragment extends Fragment {
             }
         });
 
-
         return view;
     }
 
@@ -93,7 +104,6 @@ public class IngredientsListFragment extends Fragment {
 
         return ingredients;
     }
-
 
     @Override
     public void onDestroy() {

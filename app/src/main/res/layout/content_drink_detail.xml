@@ -8,12 +8,13 @@
             name="drink"
             type="com.erikstackelberg.cocktailhour.models.Drink"/>
     </data>
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context="com.erikstackelberg.cocktailhour.activities.DrinkDetailActivity"
         tools:showIn="@layout/activity_drink_detail"
+        android:orientation="vertical"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
@@ -22,105 +23,60 @@
         <TextView
             android:id="@+id/drink_detail_name"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            app:layout_constraintTop_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_marginTop="16dp"
             tools:text="Old Fashioned"
             android:textSize="26sp"
             android:textAllCaps="true"
             android:textStyle="bold"
             android:textColor="@color/colorAccent"
             android:text="@{drink.name}"
-            android:textAlignment="center"
-            tools:layout_editor_absoluteX="95dp" />
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/drink_detail_tags"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            tools:text="Tried tiki"
+            android:textSize="16sp"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            android:text="@{drink.getAllTagsAsString()}"
+            android:textAlignment="center" />
+
 
         <TextView
             android:id="@+id/drink_detail_description"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/drink_detail_name"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             tools:text="Classic cocktail"
             android:text="@{drink.description}"
-            android:textSize="14sp"
-            android:layout_marginTop="16dp"
-            tools:layout_editor_absoluteX="16dp" />
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
 
         <TextView
             android:id="@+id/drink_detail_instructions"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/drink_detail_description"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             tools:text="Stir with ice."
             android:text="@{drink.instructions}"
-            android:textSize="14sp"
-            tools:layout_editor_absoluteX="16dp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/drink_detail_variation"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/drink_detail_instructions"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             tools:text="Stir with ice."
             android:text="@{drink.variations}"
-            android:textSize="14sp"
-            tools:layout_editor_absoluteX="16dp" />
+            android:textSize="16sp" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/drink_detail_ingredient_recycler_view"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/drink_detail_variation"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:layout_editor_absoluteX="16dp">
+            android:scrollbars="vertical"
+            android:layout_marginTop="16dp">
         </android.support.v7.widget.RecyclerView>
-        <Button
-            android:id="@+id/drink_detail_delete_drink"
-            android:layout_width="336dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="DELETE"
-            tools:layout_editor_absoluteX="24dp" />
-        <Button
-            android:id="@+id/drink_detail_edit_button"
-            android:layout_width="336dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/drink_detail_delete_drink"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="EDIT"
-            tools:layout_editor_absoluteX="24dp" />
-
-        <CheckBox
-            android:id="@+id/drink_detail_favourite_checkbox"
-            android:checked="@{drink.favourite}"
-            android:layout_width="336dp"
-            android:layout_height="wrap_content"
-            android:text="favourite"
-            app:layout_constraintTop_toBottomOf="@+id/drink_detail_ingredient_recycler_view"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:layout_editor_absoluteX="8dp" />
-        <CheckBox
-            android:id="@+id/drink_detail_tried_checkbox"
-            android:checked="@{drink.hasTried}"
-            android:layout_width="336dp"
-            android:layout_height="wrap_content"
-            android:text="tried"
-            app:layout_constraintTop_toBottomOf="@+id/drink_detail_favourite_checkbox"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:layout_editor_absoluteX="8dp" />
-
-
-    </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
 </layout>

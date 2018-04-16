@@ -24,9 +24,6 @@ import com.erikstackelberg.cocktailhour.models.Ingredient;
 
 import java.util.ArrayList;
 
-/**
- * Created by erik on 2017-11-23.
- */
 
 public class DrinkIngredientAddListAdapter extends RecyclerView.Adapter<DrinkIngredientAddListAdapter.ViewHolder> {
     private ArrayList<DrinkIngredient> drinkIngredients;

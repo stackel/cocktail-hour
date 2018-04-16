@@ -20,18 +20,12 @@ import android.view.ViewGroup;
 
 import com.erikstackelberg.cocktailhour.activities.NewDrinkActivity;
 import com.erikstackelberg.cocktailhour.activities.NewIngredientActivity;
-import com.erikstackelberg.cocktailhour.data.DataFactory;
-import com.erikstackelberg.cocktailhour.enums.IngredientType;
-import com.erikstackelberg.cocktailhour.enums.Unit;
+import com.erikstackelberg.cocktailhour.data.DrinkFactory;
 import com.erikstackelberg.cocktailhour.fragments.DrinkListFragment;
 import com.erikstackelberg.cocktailhour.fragments.IngredientsListFragment;
-import com.erikstackelberg.cocktailhour.models.Drink;
-import com.erikstackelberg.cocktailhour.models.DrinkIngredient;
-import com.erikstackelberg.cocktailhour.models.Ingredient;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
-import io.realm.RealmList;
 
 public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG = "MainActivity";
@@ -44,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initRealm(  );
+        initRealm();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -87,9 +81,8 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_insert_data) {
-            DataFactory dataFactory = new DataFactory();
+            DrinkFactory dataFactory = new DrinkFactory();
             dataFactory.insertData();
-
             return true;
         }
 

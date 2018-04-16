@@ -31,6 +31,7 @@
         <activity
             android:name=".activities.IngredientDetailActivity"
             android:label="@string/title_activity_ingredient_detail"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -48,14 +49,6 @@
         <activity
             android:name=".activities.NewDrinkActivity"
             android:label="@string/title_activity_new_drink"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.erikstackelberg.cocktailhour.MainActivity" />
-        </activity>
-        <activity
-            android:name=".activities.TestActivity"
-            android:label="@string/title_activity_test"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

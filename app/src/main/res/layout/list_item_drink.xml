@@ -6,17 +6,17 @@
         <variable
             name="drink"
             type="com.erikstackelberg.cocktailhour.models.Drink"/>
+        <import type="android.view.View" />
     </data>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginEnd="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginTop="6dp"
         android:layout_marginBottom="@dimen/activity_vertical_margin">
         <TextView
+            android:alpha="@{drink.hasAllIngredients() ? 1.0f : 0.5f}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="Old Fashioned"
@@ -34,11 +34,50 @@
             android:maxLines="1"
             android:ellipsize="marquee"
             android:textSize="14sp"
-            android:layout_marginBottom="16dp"
             />
 
+        <TextView
+            android:visibility="@{drink.hasAllIngredients() ? View.GONE : View.VISIBLE}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Missing grapefruit"
+            android:text="@{drink.getMissingIngredientsString()}"
+            android:maxLines="1"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            android:ellipsize="marquee"
+            android:textSize="14sp"
+            android:layout_marginBottom="6dp"
+
+
+            />
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/drink_detail_missing_ingredients"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Missing x"
+            android:maxLines="1"
+            android:ellipsize="marquee"
+            android:textSize="14sp"
+            android:layout_marginBottom="16dp"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            tools:text="facotire tried"
+            android:text="@{drink.getAllTagsAsString()}"
+            android:maxLines="1"
+            android:textSize="12sp"
+            android:textStyle="bold"
+
+            />
         <View
             android:layout_width="match_parent"
+            android:layout_marginTop="16dp"
             android:layout_height="2dp"
             android:background="@color/colorAccent"/>
 

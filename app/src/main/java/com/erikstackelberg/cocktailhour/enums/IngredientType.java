@@ -15,6 +15,7 @@ public enum IngredientType {
     SUGAR("Sugar"),
     FRUIT("Fruit"),
     WINE("Wine"),
+    HERB("Herb"),
     SODA("Soda");
 
     private String friendlyName;

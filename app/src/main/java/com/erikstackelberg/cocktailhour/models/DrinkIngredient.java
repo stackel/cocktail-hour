@@ -11,7 +11,6 @@ import io.realm.annotations.Required;
 
 
 public class DrinkIngredient extends RealmObject {
-
     private static final DecimalFormat decimalFormat = new DecimalFormat("0.#");
     @PrimaryKey
     @Required
@@ -26,7 +25,6 @@ public class DrinkIngredient extends RealmObject {
         setAmount(amount);
         setUnit(unit);
     }
-
 
     public DrinkIngredient() {
         id = UUID.randomUUID().toString();
@@ -66,6 +64,7 @@ public class DrinkIngredient extends RealmObject {
     public void setUnit(Unit unit) {
         this.unit = unit.name();
     }
+
     public Unit getUnit() {
         return (unit != null) ? Unit.valueOf(unit) : null;
     }

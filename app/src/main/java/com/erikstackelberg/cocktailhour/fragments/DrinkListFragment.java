@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +15,11 @@ import android.widget.Spinner;
 import com.erikstackelberg.cocktailhour.R;
 import com.erikstackelberg.cocktailhour.activities.DrinkDetailActivity;
 import com.erikstackelberg.cocktailhour.adapters.DrinkListAdapter;
-import com.erikstackelberg.cocktailhour.enums.Filter;
-import com.erikstackelberg.cocktailhour.enums.IngredientType;
+import com.erikstackelberg.cocktailhour.enums.Tag;
 import com.erikstackelberg.cocktailhour.models.Drink;
 
 import io.realm.Realm;
+import io.realm.RealmList;
 import io.realm.RealmResults;
 
 public class DrinkListFragment extends Fragment {
@@ -40,7 +39,8 @@ public class DrinkListFragment extends Fragment {
 
         RecyclerView recyclerView = view.findViewById(R.id.drink_recycler_view);
 
-        final DrinkListAdapter drinksAdapter = new DrinkListAdapter(getDrinks(Filter.FAVOURITE), true, new DrinkListAdapter.OnItemClickListener() {
+        final DrinkListAdapter drinksAdapter = new DrinkListAdapter(getDrinks(Tag.ALL), true,
+                new DrinkListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Drink item) {
                 Intent intent = new Intent(getActivity(), DrinkDetailActivity.class);
@@ -54,8 +54,8 @@ public class DrinkListFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         final Spinner filterSpinner = view.findViewById(R.id.drink_list_filter_spinner);
-        final ArrayAdapter<Filter> filterSpinnerAdapter = new ArrayAdapter<>(getContext(),
-                android.R.layout.simple_list_item_1, Filter.values());
+        final ArrayAdapter<Tag> filterSpinnerAdapter = new ArrayAdapter<>(getContext(),
+                android.R.layout.simple_list_item_1, Tag.values());
         filterSpinner.setAdapter(filterSpinnerAdapter);
 
         filterSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -73,29 +73,23 @@ public class DrinkListFragment extends Fragment {
         return view;
     }
 
-    private RealmResults<Drink> getDrinks(Filter filter) {
+    private RealmResults<Drink> getDrinks(Tag tag) {
         if(realm != null) {
             realm.close();
         }
         realm = Realm.getDefaultInstance();
-        RealmResults<Drink> drinks;
+        RealmResults<Drink> drinks = null;
 
-        switch (filter) {
+        switch (tag) {
             case ALL:
                 drinks = realm.where(Drink.class).findAllSorted("name");
                 break;
-            case FAVOURITE:
-                drinks = realm.where(Drink.class).equalTo("favourite", true).findAllSorted("name");
-                break;
-            case TRIED:
-                drinks = realm.where(Drink.class).equalTo("hasTried", true).findAllSorted("name");
-                break;
-            case NOT_TRIED:
-                drinks = realm.where(Drink.class).equalTo("hasTried", false).findAllSorted("name");
-                break;
             default:
-                drinks = realm.where(Drink.class).findAllSorted("name");
+                drinks = realm.where(Drink.class).equalTo("tags.string",
+                        tag.toString()).findAllSorted("name");
+                break;
         }
+
         return drinks;
     }
 

@@ -19,6 +19,7 @@
             tools:text="Bourbon"
             android:textSize="20sp"
             android:textColor="@color/colorAccent"
+            android:alpha="@{drinkIngredient.ingredient.hasIngredient() ? 1.0f : 0.5f}"
             android:text="@{drinkIngredient.ingredient.name}"/>
         <TextView
             android:layout_width="match_parent"
