@@ -126,8 +126,10 @@ public class Drink extends RealmObject {
 
     public boolean hasAllIngredients() {
         for(DrinkIngredient drinkIngredient : drinkIngredients) {
-            if (!drinkIngredient.getIngredient().hasIngredient()) {
-                return false;
+            if(drinkIngredient.getIngredient() != null ) {
+                if (!drinkIngredient.getIngredient().hasIngredient()) {
+                    return false;
+                }
             }
         }
         return true;
@@ -137,10 +139,13 @@ public class Drink extends RealmObject {
         StringBuilder sb = new StringBuilder();
         sb.append("Missing: ");
         for(DrinkIngredient drinkIngredient : drinkIngredients) {
-            if (!drinkIngredient.getIngredient().hasIngredient()) {
-                sb.append(drinkIngredient.getIngredient().toString());
-                sb.append(", ");
+            if(drinkIngredient.getIngredient() != null ) {
+                if (!drinkIngredient.getIngredient().hasIngredient()) {
+                    sb.append(drinkIngredient.getIngredient().toString());
+                    sb.append(", ");
+                }
             }
+
         }
         return sb.toString();
     }
