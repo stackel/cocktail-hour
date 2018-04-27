@@ -18,7 +18,7 @@ public class DrinkFactory {
     private Realm realm;
     public DrinkFactory() {}
 
-    public void insertData() {
+    public void insertMyData() {
         realm = Realm.getDefaultInstance();
         realm.executeTransaction(new Realm.Transaction() {
             @Override
@@ -1582,6 +1582,394 @@ public class DrinkFactory {
                 whiteLady.addDrinkIngredient(new DrinkIngredient(lemon, 15.0, Unit.ML));
                 whiteLady.addTag(Tag.NOT_TRIED);
                 realm.copyToRealmOrUpdate(whiteLady);
+            }
+        });
+    }
+
+    public void insertBasicData() {
+        realm = Realm.getDefaultInstance();
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(@NonNull Realm realm) {
+                //Ingredients
+                Ingredient bourbon =
+                        new Ingredient("Bourbon", "Corn based whisky.", IngredientType.SPIRIT);
+                realm.copyToRealmOrUpdate(bourbon);
+
+                Ingredient angosturaBitters =
+                        new Ingredient("Angostura Bitters", "Spicy bitters", IngredientType.BITTERS);
+                realm.copyToRealmOrUpdate(angosturaBitters);
+
+                Ingredient simpleSyrup =
+                        new Ingredient("Simple Syrup", "1:1 Sugar to water.", IngredientType.SURYP);
+                realm.copyToRealmOrUpdate(simpleSyrup);
+
+                Ingredient mapleSyrup =
+                        new Ingredient("Maple Syrup", "Syrup from the maple tree.", IngredientType.SURYP);
+                realm.copyToRealmOrUpdate(mapleSyrup);
+
+                Ingredient redVermouth =
+                        new Ingredient("Red Vermouth", "Fortified wine.", IngredientType.FORTIFIED_WINE);
+
+                Ingredient campari =
+                        new Ingredient("Campari", "Bitter herbal liqueur.", IngredientType.BITTER);
+
+                Ingredient orange =
+                        new Ingredient("Orange", "Citrus.", IngredientType.CITRUS);
+
+                Ingredient lemon =
+                        new Ingredient("Lemon", "Citrus,", IngredientType.CITRUS);
+                Ingredient gin =
+                        new Ingredient("Gin", "Spirit flavored with juniper and other spices.",
+                                IngredientType.SPIRIT);
+                Ingredient allspiceDram =
+                        new Ingredient("Allspice Dram", "Allspice flavored liquer", IngredientType.LIQUEUR);
+                Ingredient honeySuryp =
+                        new Ingredient("Honey Suryp", "Variating ratio of water to honey", IngredientType.SURYP);
+                Ingredient orangeBitters =
+                        new Ingredient("Orange Bitters", "Orange flavored bitters", IngredientType.BITTERS);
+                Ingredient tequilaBianco =
+                        new Ingredient("Tequila Bianco", "Unaged blue agave spirit", IngredientType.SPIRIT);
+                Ingredient tequilaResposado =
+                        new Ingredient("Tequila Resposado", "Aged blue agave spirit", IngredientType.SPIRIT);
+                Ingredient grapefruit =
+                        new Ingredient("Grapefruit", "Grapefruit", IngredientType.CITRUS);
+                Ingredient darkRum =
+                        new Ingredient("Dark Rum", "Sugar cane spirit. Aged", IngredientType.SPIRIT);
+                Ingredient lime
+                        = new Ingredient("Lime", "Citrus", IngredientType.CITRUS);
+                Ingredient rockCandySyrup =
+                        new Ingredient("Rock Candy Syrup", "2:1 sugar to water.", IngredientType.SURYP);
+                Ingredient nutmeg =
+                        new Ingredient("Nutmeg", "Spice", IngredientType.SPICE);
+                Ingredient amaretto =
+                        new Ingredient("Amaretto", "Almond flavored liqueur", IngredientType.LIQUEUR);
+                Ingredient eggWhite =
+                        new Ingredient("Egg White", "White from an egg", IngredientType.DAIRY);
+
+                Ingredient lightRum =
+                        new Ingredient("Lightly Aged Rum", "Lightly aged spirit made from sugar canes. 3-8 years ish.", IngredientType.SPIRIT);
+                Ingredient cointreau =
+                        new Ingredient("Cointreau", "Orange peel flavored liqeur.", IngredientType.LIQUEUR);
+                Ingredient maraschinoLiqueur =
+                        new Ingredient("Maraschino Liqueur", "Chemical tasting liqueur", IngredientType.LIQUEUR);
+                Ingredient brandy =
+                        new Ingredient("Brandy", "Distilled grape spirit", IngredientType.SPIRIT);
+                Ingredient greenChartreuse =
+                        new Ingredient("Green Chartreuse", "Liqueur with many herbs.", IngredientType.LIQUEUR);
+
+                Ingredient pineapple =
+                        new Ingredient("Pineapple", "Exotic fruit.", IngredientType.FRUIT);
+
+                Ingredient falernum =
+                        new Ingredient("Falernum", "Liqeur with spices like ginger clove and lime zest.", IngredientType.SURYP);
+
+                Ingredient scotch =
+                        new Ingredient("Scotch", "Scottish whiskey", IngredientType.SPIRIT);
+
+                Ingredient becherovka =
+                        new Ingredient("Becherovka", "Czech cinnamon liqueur", IngredientType.LIQUEUR);
+                Ingredient cinnamonSyrup =
+                        new Ingredient("Cinnamon Syrup", "Cinnamon flavored syryp.", IngredientType.SURYP);
+
+                Ingredient absinthe =
+                        new Ingredient("Absinthe", "High-proof Spirit with wormwood and other spices", IngredientType.SPIRIT);
+
+                Ingredient orgeat =
+                        new Ingredient("Orgeat", "Almond syrup", IngredientType.SURYP);
+
+                Ingredient mint =
+                        new Ingredient("Mint", "It's mint!", IngredientType.HERB);
+
+                Ingredient cognac =
+                        new Ingredient("Cognac", "Grape spirit.", IngredientType.SPIRIT);
+                Ingredient vanillaSyrup =
+                        new Ingredient("Vanilla Syrup", "Vanilla pod flavored syrup.", IngredientType.SURYP);
+
+                Ingredient vanillaExtract =
+                        new Ingredient("Vanilla Extract", "Concentrated vanilla flavor", IngredientType.OTHER);
+                Ingredient almondExtract =
+                        new Ingredient("Almond Extract", "Concentrated almond flavor", IngredientType.OTHER);
+                Ingredient sodaWater =
+                        new Ingredient("Soda Water", "Carbonated H2O", IngredientType.SODA);
+                Ingredient raspberry =
+                        new Ingredient("Raspberry", "Sweet berry", IngredientType.FRUIT);
+                Ingredient gingerBeer =
+                        new Ingredient("Ginger Beer", "Fermented ginger beverage.", IngredientType.SODA);
+                Ingredient grenadine
+                        = new Ingredient("Grenadine", "Pomegranate syrup", IngredientType.SURYP);
+
+                Ingredient passionFruit =
+                        new Ingredient("Passion Fruit", "Exotic fruit", IngredientType.FRUIT);
+                Ingredient dryVermouth =
+                        new Ingredient("Dry Vermouth", "Also called white vermouth", IngredientType.FORTIFIED_WINE);
+                Ingredient mezcal =
+                        new Ingredient("Mezcal", "Smoky agave spirit", IngredientType.SPIRIT);
+                Ingredient egg =
+                        new Ingredient("Egg", "FROM HENS", IngredientType.DAIRY);
+                Ingredient moleBitters =
+                        new Ingredient("Mole Bitters", "Xocolatl Mole Bitters", IngredientType.BITTERS);
+                Ingredient fernetBranca =
+                        new Ingredient("Fernet Branca", "Herbal bitter liqueur", IngredientType.LIQUEUR);
+                Ingredient sherry =
+                        new Ingredient("Sherry", "Fortified wine", IngredientType.FORTIFIED_WINE);
+
+                Ingredient sparklingWine =
+                        new Ingredient("Sparkling Wine", "Umbrella term for wine with carbonation", IngredientType.WINE);
+
+                Ingredient tonicWater =
+                        new Ingredient("Tonic Water", "Bitter quinine flavored soda.", IngredientType.SODA);
+
+                Ingredient whiteRum =
+                        new Ingredient("White Rum", "Unaged rum", IngredientType.SPIRIT);
+
+                Ingredient passionFruitSyrup =
+                        new Ingredient("Passion Fruit Syrup", "1:1 Rock candy syrup to passion fruit juice", IngredientType.SURYP);
+
+                Ingredient coconutMilk =
+                        new Ingredient("Coconut Milk", "milk from coconut", IngredientType.OTHER);
+                Ingredient strawberry =
+                        new Ingredient("Strawberry", "Sweet summer berry", IngredientType.FRUIT);
+                Ingredient serranoPepper =
+                        new Ingredient("Serrano Pepper", "Hot mexian pepper", IngredientType.OTHER);
+                Ingredient ryeWhiskey =
+                        new Ingredient("Rye Whiskey", "Whiskey made with more then 50% rye.", IngredientType.SPIRIT);
+                Ingredient salt =
+                        new Ingredient("Salt", "JUST SALT", IngredientType.OTHER);
+
+                Ingredient agaveSyrup =
+                        new Ingredient("Agave Syrup", "Syrup from agave plant", IngredientType.SURYP);
+                Ingredient sugar
+                        = new Ingredient("Sugar", "White regular sugar.", IngredientType.SUGAR);
+
+                Ingredient coconutCream = new Ingredient("Coconut Cream", "Cream of coconut", IngredientType.OTHER);
+                Ingredient cinnamon = new Ingredient("Cinnamon", "Bark", IngredientType.SPICE);
+                Ingredient heavyCream = new Ingredient("Heavy Cream", "High fat", IngredientType.DAIRY);
+                Ingredient orangeFlowerWater = new Ingredient("Orange Flower Water", "Fragrant.", IngredientType.OTHER);
+                Ingredient chocolateBitters = new Ingredient("Chocolate Bitters", "chocolate bitters", IngredientType.BITTERS);
+
+                //Drinks
+                Drink oldFashioned = new Drink();
+                oldFashioned.setName("Old Fashioned");
+                oldFashioned.setInstructions("Stir and strain over ice in old fashioned glass. Express orange peel oils and drop in.");
+                oldFashioned.addDrinkIngredient(new DrinkIngredient(bourbon, 60.0, Unit.ML));
+                oldFashioned.addDrinkIngredient(new DrinkIngredient(simpleSyrup, 5.0, Unit.ML));
+                oldFashioned.addDrinkIngredient(new DrinkIngredient(angosturaBitters, 2.0, Unit.DASH));
+                oldFashioned.addDrinkIngredient(new DrinkIngredient(orange, 1.0, Unit.PEEL));
+                oldFashioned.addTag(Tag.CLASSIC);
+                realm.copyToRealmOrUpdate(oldFashioned);
+
+                Drink boulevardier = new Drink();
+                boulevardier.setName("Boulevardier");
+                boulevardier.setInstructions("Stir and strain over ice in old fashioned glass. Express orange peel over drink and drop in");
+                boulevardier.setDescription("Classic variation of the negroni.");
+                boulevardier.setVariations("Try it with the ratio 2:1:1 or 1.5:1:1 (Bourbon:vermouth:campari)");
+                boulevardier.addDrinkIngredient(new DrinkIngredient(bourbon, 30.0, Unit.ML));
+                boulevardier.addDrinkIngredient(new DrinkIngredient(redVermouth, 30.0, Unit.ML));
+                boulevardier.addDrinkIngredient(new DrinkIngredient(campari, 30.0, Unit.ML));
+                boulevardier.addDrinkIngredient(new DrinkIngredient(orange, 1.0, Unit.PEEL));
+                boulevardier.addTag(Tag.CLASSIC);
+                realm.copyToRealmOrUpdate(boulevardier);
+
+                Drink negroni = new Drink();
+                negroni.setName("Negroni");
+                negroni.setInstructions("Stir and strain over ice in old fashioned glass. Express orange peel over drink and drop in");
+                negroni.addDrinkIngredient(new DrinkIngredient(gin, 30.0, Unit.ML));
+                negroni.addDrinkIngredient(new DrinkIngredient(redVermouth, 30.0, Unit.ML));
+                negroni.addDrinkIngredient(new DrinkIngredient(campari, 30.0, Unit.ML));
+                negroni.addDrinkIngredient(new DrinkIngredient(orange, 1.0, Unit.PEEL));
+                negroni.addTag(Tag.CLASSIC);
+                realm.copyToRealmOrUpdate(negroni);
+
+                Drink beesKnees = new Drink();
+                beesKnees.setName("Bee's Knees");
+                beesKnees.setInstructions("Shake and double strain into coupe. 3:1 honey suryp.");
+                beesKnees.addDrinkIngredient(new DrinkIngredient(gin, 60.0, Unit.ML));
+                beesKnees.addDrinkIngredient(new DrinkIngredient(lemon, 22.0, Unit.ML));
+                beesKnees.addDrinkIngredient(new DrinkIngredient(honeySuryp, 22.0, Unit.ML));
+                realm.copyToRealmOrUpdate(beesKnees);
+
+                Drink cloverClub = new Drink();
+                cloverClub.setName("Clover Club");
+                cloverClub.setInstructions("Shake and double strain int coupe.");
+                cloverClub.setVariations("You can use raspberry syrup instead of fresh.");
+                cloverClub.addDrinkIngredient(new DrinkIngredient(gin, 60.0, Unit.ML));
+                cloverClub.addDrinkIngredient(new DrinkIngredient(lemon, 20.0, Unit.ML));
+                cloverClub.addDrinkIngredient(new DrinkIngredient(simpleSyrup, 20.0, Unit.ML));
+                cloverClub.addDrinkIngredient(new DrinkIngredient(raspberry, 5.0, Unit.NONE));
+                cloverClub.addDrinkIngredient(new DrinkIngredient(eggWhite, 1.0, Unit.NONE));
+                cloverClub.addTag(Tag.CLASSIC);
+                realm.copyToRealmOrUpdate(cloverClub);
+
+                Drink daiquiri = new Drink();
+                daiquiri.setName("Daiquri");
+                daiquiri.setInstructions("Shake and double strain into coupe. Garnish with lime wheel.");
+                daiquiri.setVariations("Try it with lightly aged rum.");
+                daiquiri.addDrinkIngredient(new DrinkIngredient(whiteRum, 60.0, Unit.ML));
+                daiquiri.addDrinkIngredient(new DrinkIngredient(lime, 30.0, Unit.ML));
+                daiquiri.addDrinkIngredient(new DrinkIngredient(simpleSyrup, 20.0, Unit.ML));
+                daiquiri.addTag(Tag.CLASSIC);
+                realm.copyToRealmOrUpdate(daiquiri);
+
+                Drink darkAndStormy = new Drink();
+                darkAndStormy.setName("Dark & Stormy");
+                darkAndStormy.setInstructions("Build in highball and garnish with lime wedge. Black blended rum.");
+                darkAndStormy.addDrinkIngredient(new DrinkIngredient(darkRum, 60.0, Unit.ML));
+                darkAndStormy.addDrinkIngredient(new DrinkIngredient(gingerBeer, 100.0, Unit.ML));
+                darkAndStormy.addDrinkIngredient(new DrinkIngredient(lime, 10.0, Unit.ML));
+                realm.copyToRealmOrUpdate(darkAndStormy);
+
+
+                Drink dryMartini = new Drink();
+                dryMartini.setName("Dry Martini");
+                dryMartini.setInstructions("Stir and strain into coupe.");
+                dryMartini.setVariations("Either express lemon peel over drink or drop in an olive. " +
+                        "Ratio gin to vermouth is highly variable.");
+                dryMartini.addDrinkIngredient(new DrinkIngredient(gin, 60.0, Unit.ML));
+                dryMartini.addDrinkIngredient(new DrinkIngredient(dryVermouth, 20.0, Unit.ML));
+                dryMartini.addDrinkIngredient(new DrinkIngredient(orangeBitters, 2.0, Unit.DASH));
+                dryMartini.addTag(Tag.NOT_TRIED);
+                dryMartini.addTag(Tag.CLASSIC);
+                realm.copyToRealmOrUpdate(dryMartini);
+
+                Drink french75 = new Drink();
+                french75.setName("French 75");
+                french75.setInstructions("Shake and double strain into coupe or champagne flute, top with sparkling wine.");
+                french75.setVariations("Morgenthaler method. Use highball with cracked ice.");
+                french75.addDrinkIngredient(new DrinkIngredient(gin, 30.0, Unit.ML));
+                french75.addDrinkIngredient(new DrinkIngredient(lemon, 30.0, Unit.ML));
+                french75.addDrinkIngredient(new DrinkIngredient(rockCandySyrup, 15.0, Unit.ML));
+                french75.addDrinkIngredient(new DrinkIngredient(sparklingWine, 60.0, Unit.ML));
+                french75.addTag(Tag.CLASSIC);
+                realm.copyToRealmOrUpdate(french75);
+
+                Drink gimlet = new Drink();
+                gimlet.setName("Gimlet");
+                gimlet.setInstructions("Shake and double strain into coupe. Garnish with lime wheel.");
+                gimlet.addDrinkIngredient(new DrinkIngredient(gin, 60.0, Unit.ML));
+                gimlet.addDrinkIngredient(new DrinkIngredient(lime, 30.0, Unit.ML));
+                gimlet.addDrinkIngredient(new DrinkIngredient(lime, 20.0, Unit.ML));
+                gimlet.addTag(Tag.CLASSIC);
+                realm.copyToRealmOrUpdate(gimlet);
+
+                Drink ginAndTonic = new Drink();
+                ginAndTonic.setName("Gin & Tonic");
+                ginAndTonic.setInstructions("Build in double old fashioned or collins. Garnish with lime wheel.");
+                ginAndTonic.setVariations("You can also use tonic syrup and soda water. Try it with star anise.");
+                ginAndTonic.setTastingNotes("Crispy and refreshing yet bitter. Juniper and quinine.");
+                ginAndTonic.addDrinkIngredient(new DrinkIngredient(gin, 60.0, Unit.ML));
+                ginAndTonic.addDrinkIngredient(new DrinkIngredient(tonicWater, 120.0, Unit.ML));
+                ginAndTonic.addDrinkIngredient(new DrinkIngredient(lime, 7.5, Unit.ML));
+                ginAndTonic.addTag(Tag.CLASSIC);
+                realm.copyToRealmOrUpdate(ginAndTonic);
+
+                Drink goldRush = new Drink();
+                goldRush.setName("Gold Rush");
+                goldRush.setInstructions("Shake and strain over big ice cube in old fashioned glass. No garnish");
+                goldRush.addDrinkIngredient(new DrinkIngredient(bourbon, 60.0, Unit.ML));
+                goldRush.addDrinkIngredient(new DrinkIngredient(honeySuryp, 30.0, Unit.ML));
+                goldRush.addDrinkIngredient(new DrinkIngredient(lemon, 20.0, Unit.ML));
+                realm.copyToRealmOrUpdate(goldRush);
+
+                Drink maiTai = new Drink();
+                maiTai.setName("Mai Tai");
+                maiTai.setInstructions("Shake with crushed ice and 4-5 ice cubes. Pour into double old fashioned " +
+                        "and garnish with spent lime shell and mint sprig. 30ml Jamaican Aged Rum, 30 ml Rhum Agricole Vieux.");
+                maiTai.setVariations("You can experiment with different rums and ratios.");
+                maiTai.setTastingNotes("Balanced sweetness, funky and slightly nutty.");
+                maiTai.addDrinkIngredient(new DrinkIngredient(darkRum, 60.0, Unit.ML));
+                maiTai.addDrinkIngredient(new DrinkIngredient(lime, 20.0, Unit.ML));
+                maiTai.addDrinkIngredient(new DrinkIngredient(rockCandySyrup, 7.5, Unit.ML));
+                maiTai.addDrinkIngredient(new DrinkIngredient(orgeat, 7.5, Unit.ML));
+                maiTai.addDrinkIngredient(new DrinkIngredient(cointreau, 7.5, Unit.ML));
+                maiTai.addDrinkIngredient(new DrinkIngredient(mint, 1.0, Unit.SPRIG));
+                realm.copyToRealmOrUpdate(maiTai);
+
+                Drink manhattan = new Drink();
+                manhattan.setName("Manhattan");
+                manhattan.setInstructions("Stir and strain into coupe. Express orange peel oils and drop in. Garnish with speared maraschino cherry.");
+                manhattan.setTastingNotes("Spicy and herbaceous, mellow heavy taste. Strong but no distinct taste of alcohol.");
+                manhattan.addDrinkIngredient(new DrinkIngredient(ryeWhiskey, 60.0, Unit.ML));
+                manhattan.addDrinkIngredient(new DrinkIngredient(redVermouth, 30.0, Unit.ML));
+                manhattan.addDrinkIngredient(new DrinkIngredient(angosturaBitters, 2.0, Unit.ML));
+                manhattan.addDrinkIngredient(new DrinkIngredient(orange, 1.0, Unit.PEEL));
+                manhattan.addTag(Tag.CLASSIC);
+                realm.copyToRealmOrUpdate(manhattan);
+
+                Drink margarita = new Drink();
+                margarita.setName("Margarita");
+                margarita.setInstructions("Shake and strain into double old fashioned over large ice cube.Garnish with lime wedge");
+                margarita.addDrinkIngredient(new DrinkIngredient(tequilaBianco, 60.0, Unit.ML));
+                margarita.addDrinkIngredient(new DrinkIngredient(lime, 30.0, Unit.ML));
+                margarita.addDrinkIngredient(new DrinkIngredient(cointreau, 30.0, Unit.ML));
+                margarita.addDrinkIngredient(new DrinkIngredient(salt, 1.0, Unit.DASH));
+                realm.copyToRealmOrUpdate(margarita);
+
+                Drink mintJulep = new Drink();
+                mintJulep.setName("Mint Julep");
+                mintJulep.setInstructions("Muddle mint and simple suryp gently in julep cup or old fashioned. Fill with bourbon and crushed ice." +
+                        "garnish with mint sprig.");
+                mintJulep.setTastingNotes("Fresh sweet ice cold minty bourbon,");
+                mintJulep.addDrinkIngredient(new DrinkIngredient(bourbon, 60.0, Unit.ML));
+                mintJulep.addDrinkIngredient(new DrinkIngredient(simpleSyrup, 60.0, Unit.ML));
+                mintJulep.addDrinkIngredient(new DrinkIngredient(mint, 10.0, Unit.LEAF));
+                mintJulep.addTag(Tag.CLASSIC);
+                realm.copyToRealmOrUpdate(mintJulep);
+
+                Drink mojito = new Drink();
+                mojito.setName("Mojito");
+                mojito.setInstructions("Gently shake and double strain into collins glass. Top with soda. Garnish with a big sprig of mint and lime wedge");
+                mojito.setVariations("Can also be built directly in the glass with crushed ice. Try it with lightly aged rum.");
+                mojito.addDrinkIngredient(new DrinkIngredient(whiteRum, 60.0, Unit.ML));
+                mojito.addDrinkIngredient(new DrinkIngredient(simpleSyrup, 30.0, Unit.ML));
+                mojito.addDrinkIngredient(new DrinkIngredient(lime, 20.0, Unit.ML));
+                mojito.addDrinkIngredient(new DrinkIngredient(mint, 10.0, Unit.NONE));
+                mojito.addDrinkIngredient(new DrinkIngredient(sodaWater, 30.0, Unit.ML));
+                realm.copyToRealmOrUpdate(mojito);
+
+                Drink peguClub = new Drink();
+                peguClub.setName("Pegu Club");
+                peguClub.setInstructions("Stir and strain into coupe. Garnish with lime twist.");
+                peguClub.addDrinkIngredient(new DrinkIngredient(gin, 60.0, Unit.ML));
+                peguClub.addDrinkIngredient(new DrinkIngredient(cointreau, 20.0, Unit.ML));
+                peguClub.addDrinkIngredient(new DrinkIngredient(lime, 15.0, Unit.ML));
+                peguClub.addDrinkIngredient(new DrinkIngredient(angosturaBitters, 1.0, Unit.DASH));
+                peguClub.addDrinkIngredient(new DrinkIngredient(orangeBitters, 1.0, Unit.DASH));
+                realm.copyToRealmOrUpdate(peguClub);
+
+                Drink ramosGinFizz = new Drink();
+                ramosGinFizz.setName("Ramos Gin Fizz");
+                ramosGinFizz.setInstructions("");
+                ramosGinFizz.addDrinkIngredient(new DrinkIngredient(gin, 60.0, Unit.ML));
+                ramosGinFizz.addDrinkIngredient(new DrinkIngredient(simpleSyrup, 20.0, Unit.ML));
+                ramosGinFizz.addDrinkIngredient(new DrinkIngredient(lemon, 20.0, Unit.ML));
+                ramosGinFizz.addDrinkIngredient(new DrinkIngredient(lime, 20.0, Unit.ML));
+                ramosGinFizz.addDrinkIngredient(new DrinkIngredient(heavyCream, 30.0, Unit.ML));
+                ramosGinFizz.addDrinkIngredient(new DrinkIngredient(eggWhite, 1.0, Unit.ML));
+                ramosGinFizz.addDrinkIngredient(new DrinkIngredient(orangeFlowerWater, 3.0, Unit.DROP));
+                ramosGinFizz.addDrinkIngredient(new DrinkIngredient(sodaWater, 30.0, Unit.ML));
+                realm.copyToRealmOrUpdate(ramosGinFizz);
+
+                Drink sidecar = new Drink();
+                sidecar.setName("Sidecar");
+                sidecar.setInstructions("Shake and double strain into coupe. Optionally rim glass with sugar.");
+                sidecar.setVariations("Optionally add 7.5 ml simple suryp.");
+                sidecar.addDrinkIngredient(new DrinkIngredient(cognac, 60.0, Unit.ML));
+                sidecar.addDrinkIngredient(new DrinkIngredient(cointreau, 20.0, Unit.ML));
+                sidecar.addDrinkIngredient(new DrinkIngredient(lemon, 20.0, Unit.ML));
+                sidecar.addTag(Tag.CLASSIC);
+                realm.copyToRealmOrUpdate(sidecar);
+
+                Drink whiskeySour = new Drink();
+                whiskeySour.setName("Whiskey Sour");
+                whiskeySour.setInstructions("Shake and double strain into coupe. Garnish with 4 drops bitters.");
+                whiskeySour.addDrinkIngredient(new DrinkIngredient(bourbon, 60.0, Unit.ML));
+                whiskeySour.addDrinkIngredient(new DrinkIngredient(lemon, 20.0, Unit.ML));
+                whiskeySour.addDrinkIngredient(new DrinkIngredient(simpleSyrup, 15.0, Unit.ML));
+                whiskeySour.addDrinkIngredient(new DrinkIngredient(eggWhite, 1.0, Unit.NONE));
+                whiskeySour.addDrinkIngredient(new DrinkIngredient(angosturaBitters, 4.0, Unit.DROP));
+                whiskeySour.addTag(Tag.CLASSIC);
+                realm.copyToRealmOrUpdate(whiskeySour);
             }
         });
     }

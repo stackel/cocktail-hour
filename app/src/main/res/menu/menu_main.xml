@@ -3,9 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.erikstackelberg.cocktailhour.MainActivity">
     <item
-        android:id="@+id/action_insert_data"
+        android:id="@+id/action_insert_basic_cocktails"
         android:orderInCategory="100"
-        android:title="Insert Data"
+        android:title="Add basic data."
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_insert_my_data"
+        android:orderInCategory="100"
+        android:title="Add my data."
         app:showAsAction="never" />
     <item
         android:id="@+id/action_delete_all_data"
