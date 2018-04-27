@@ -1607,143 +1607,204 @@ public class DrinkFactory {
 
                 Ingredient redVermouth =
                         new Ingredient("Red Vermouth", "Fortified wine.", IngredientType.FORTIFIED_WINE);
+                realm.copyToRealmOrUpdate(redVermouth);
 
                 Ingredient campari =
                         new Ingredient("Campari", "Bitter herbal liqueur.", IngredientType.BITTER);
+                realm.copyToRealmOrUpdate(campari);
 
                 Ingredient orange =
                         new Ingredient("Orange", "Citrus.", IngredientType.CITRUS);
+                realm.copyToRealmOrUpdate(orange);
 
                 Ingredient lemon =
                         new Ingredient("Lemon", "Citrus,", IngredientType.CITRUS);
+                realm.copyToRealmOrUpdate(lemon);
                 Ingredient gin =
                         new Ingredient("Gin", "Spirit flavored with juniper and other spices.",
                                 IngredientType.SPIRIT);
+                realm.copyToRealmOrUpdate(gin);
                 Ingredient allspiceDram =
                         new Ingredient("Allspice Dram", "Allspice flavored liquer", IngredientType.LIQUEUR);
+                realm.copyToRealmOrUpdate(allspiceDram);
                 Ingredient honeySuryp =
                         new Ingredient("Honey Suryp", "Variating ratio of water to honey", IngredientType.SURYP);
+                realm.copyToRealmOrUpdate(honeySuryp);
                 Ingredient orangeBitters =
                         new Ingredient("Orange Bitters", "Orange flavored bitters", IngredientType.BITTERS);
+                realm.copyToRealmOrUpdate(orangeBitters);
                 Ingredient tequilaBianco =
                         new Ingredient("Tequila Bianco", "Unaged blue agave spirit", IngredientType.SPIRIT);
+                realm.copyToRealmOrUpdate(tequilaBianco);
                 Ingredient tequilaResposado =
                         new Ingredient("Tequila Resposado", "Aged blue agave spirit", IngredientType.SPIRIT);
+                realm.copyToRealmOrUpdate(tequilaResposado);
                 Ingredient grapefruit =
                         new Ingredient("Grapefruit", "Grapefruit", IngredientType.CITRUS);
+                realm.copyToRealmOrUpdate(grapefruit);
                 Ingredient darkRum =
                         new Ingredient("Dark Rum", "Sugar cane spirit. Aged", IngredientType.SPIRIT);
+                realm.copyToRealmOrUpdate(darkRum);
                 Ingredient lime
                         = new Ingredient("Lime", "Citrus", IngredientType.CITRUS);
+                realm.copyToRealmOrUpdate(lime);
                 Ingredient rockCandySyrup =
                         new Ingredient("Rock Candy Syrup", "2:1 sugar to water.", IngredientType.SURYP);
+                realm.copyToRealmOrUpdate(rockCandySyrup);
                 Ingredient nutmeg =
                         new Ingredient("Nutmeg", "Spice", IngredientType.SPICE);
+                realm.copyToRealmOrUpdate(nutmeg);
                 Ingredient amaretto =
                         new Ingredient("Amaretto", "Almond flavored liqueur", IngredientType.LIQUEUR);
+                realm.copyToRealmOrUpdate(amaretto);
                 Ingredient eggWhite =
                         new Ingredient("Egg White", "White from an egg", IngredientType.DAIRY);
+                realm.copyToRealmOrUpdate(eggWhite);
 
                 Ingredient lightRum =
                         new Ingredient("Lightly Aged Rum", "Lightly aged spirit made from sugar canes. 3-8 years ish.", IngredientType.SPIRIT);
+                realm.copyToRealmOrUpdate(lightRum);
                 Ingredient cointreau =
                         new Ingredient("Cointreau", "Orange peel flavored liqeur.", IngredientType.LIQUEUR);
+                realm.copyToRealmOrUpdate(cointreau);
                 Ingredient maraschinoLiqueur =
                         new Ingredient("Maraschino Liqueur", "Chemical tasting liqueur", IngredientType.LIQUEUR);
+                realm.copyToRealmOrUpdate(maraschinoLiqueur);
                 Ingredient brandy =
                         new Ingredient("Brandy", "Distilled grape spirit", IngredientType.SPIRIT);
+                realm.copyToRealmOrUpdate(brandy);
                 Ingredient greenChartreuse =
                         new Ingredient("Green Chartreuse", "Liqueur with many herbs.", IngredientType.LIQUEUR);
+                realm.copyToRealmOrUpdate(greenChartreuse);
 
                 Ingredient pineapple =
                         new Ingredient("Pineapple", "Exotic fruit.", IngredientType.FRUIT);
+                realm.copyToRealmOrUpdate(pineapple);
 
                 Ingredient falernum =
                         new Ingredient("Falernum", "Liqeur with spices like ginger clove and lime zest.", IngredientType.SURYP);
+                realm.copyToRealmOrUpdate(falernum);
 
                 Ingredient scotch =
                         new Ingredient("Scotch", "Scottish whiskey", IngredientType.SPIRIT);
+                realm.copyToRealmOrUpdate(scotch);
 
                 Ingredient becherovka =
                         new Ingredient("Becherovka", "Czech cinnamon liqueur", IngredientType.LIQUEUR);
+                realm.copyToRealmOrUpdate(becherovka);
                 Ingredient cinnamonSyrup =
                         new Ingredient("Cinnamon Syrup", "Cinnamon flavored syryp.", IngredientType.SURYP);
+                realm.copyToRealmOrUpdate(cinnamonSyrup);
 
                 Ingredient absinthe =
                         new Ingredient("Absinthe", "High-proof Spirit with wormwood and other spices", IngredientType.SPIRIT);
+                realm.copyToRealmOrUpdate(absinthe);
 
                 Ingredient orgeat =
                         new Ingredient("Orgeat", "Almond syrup", IngredientType.SURYP);
+                realm.copyToRealmOrUpdate(orgeat);
 
                 Ingredient mint =
                         new Ingredient("Mint", "It's mint!", IngredientType.HERB);
+                realm.copyToRealmOrUpdate(mint);
 
                 Ingredient cognac =
                         new Ingredient("Cognac", "Grape spirit.", IngredientType.SPIRIT);
+                realm.copyToRealmOrUpdate(cognac);
                 Ingredient vanillaSyrup =
                         new Ingredient("Vanilla Syrup", "Vanilla pod flavored syrup.", IngredientType.SURYP);
+                realm.copyToRealmOrUpdate(vanillaSyrup);
 
                 Ingredient vanillaExtract =
                         new Ingredient("Vanilla Extract", "Concentrated vanilla flavor", IngredientType.OTHER);
+                realm.copyToRealmOrUpdate(vanillaExtract);
                 Ingredient almondExtract =
                         new Ingredient("Almond Extract", "Concentrated almond flavor", IngredientType.OTHER);
+                realm.copyToRealmOrUpdate(almondExtract);
                 Ingredient sodaWater =
                         new Ingredient("Soda Water", "Carbonated H2O", IngredientType.SODA);
+                realm.copyToRealmOrUpdate(sodaWater);
                 Ingredient raspberry =
                         new Ingredient("Raspberry", "Sweet berry", IngredientType.FRUIT);
+                realm.copyToRealmOrUpdate(raspberry);
                 Ingredient gingerBeer =
                         new Ingredient("Ginger Beer", "Fermented ginger beverage.", IngredientType.SODA);
+                realm.copyToRealmOrUpdate(gingerBeer);
                 Ingredient grenadine
                         = new Ingredient("Grenadine", "Pomegranate syrup", IngredientType.SURYP);
+                realm.copyToRealmOrUpdate(grenadine);
 
                 Ingredient passionFruit =
                         new Ingredient("Passion Fruit", "Exotic fruit", IngredientType.FRUIT);
+                realm.copyToRealmOrUpdate(passionFruit);
                 Ingredient dryVermouth =
                         new Ingredient("Dry Vermouth", "Also called white vermouth", IngredientType.FORTIFIED_WINE);
+                realm.copyToRealmOrUpdate(dryVermouth);
                 Ingredient mezcal =
                         new Ingredient("Mezcal", "Smoky agave spirit", IngredientType.SPIRIT);
+                realm.copyToRealmOrUpdate(mezcal);
                 Ingredient egg =
                         new Ingredient("Egg", "FROM HENS", IngredientType.DAIRY);
+                realm.copyToRealmOrUpdate(egg);
                 Ingredient moleBitters =
                         new Ingredient("Mole Bitters", "Xocolatl Mole Bitters", IngredientType.BITTERS);
+                realm.copyToRealmOrUpdate(moleBitters);
                 Ingredient fernetBranca =
                         new Ingredient("Fernet Branca", "Herbal bitter liqueur", IngredientType.LIQUEUR);
+                realm.copyToRealmOrUpdate(fernetBranca);
                 Ingredient sherry =
                         new Ingredient("Sherry", "Fortified wine", IngredientType.FORTIFIED_WINE);
+                realm.copyToRealmOrUpdate(sherry);
 
                 Ingredient sparklingWine =
                         new Ingredient("Sparkling Wine", "Umbrella term for wine with carbonation", IngredientType.WINE);
+                realm.copyToRealmOrUpdate(sparklingWine);
 
                 Ingredient tonicWater =
                         new Ingredient("Tonic Water", "Bitter quinine flavored soda.", IngredientType.SODA);
+                realm.copyToRealmOrUpdate(tonicWater);
 
                 Ingredient whiteRum =
                         new Ingredient("White Rum", "Unaged rum", IngredientType.SPIRIT);
+                realm.copyToRealmOrUpdate(whiteRum);
 
                 Ingredient passionFruitSyrup =
                         new Ingredient("Passion Fruit Syrup", "1:1 Rock candy syrup to passion fruit juice", IngredientType.SURYP);
+                realm.copyToRealmOrUpdate(passionFruitSyrup);
 
                 Ingredient coconutMilk =
                         new Ingredient("Coconut Milk", "milk from coconut", IngredientType.OTHER);
+                realm.copyToRealmOrUpdate(coconutMilk);
                 Ingredient strawberry =
                         new Ingredient("Strawberry", "Sweet summer berry", IngredientType.FRUIT);
+                realm.copyToRealmOrUpdate(strawberry);
                 Ingredient serranoPepper =
                         new Ingredient("Serrano Pepper", "Hot mexian pepper", IngredientType.OTHER);
+                realm.copyToRealmOrUpdate(serranoPepper);
                 Ingredient ryeWhiskey =
                         new Ingredient("Rye Whiskey", "Whiskey made with more then 50% rye.", IngredientType.SPIRIT);
+                realm.copyToRealmOrUpdate(ryeWhiskey);
                 Ingredient salt =
                         new Ingredient("Salt", "JUST SALT", IngredientType.OTHER);
+                realm.copyToRealmOrUpdate(salt);
 
                 Ingredient agaveSyrup =
                         new Ingredient("Agave Syrup", "Syrup from agave plant", IngredientType.SURYP);
+                realm.copyToRealmOrUpdate(agaveSyrup);
                 Ingredient sugar
                         = new Ingredient("Sugar", "White regular sugar.", IngredientType.SUGAR);
+                realm.copyToRealmOrUpdate(sugar);
 
                 Ingredient coconutCream = new Ingredient("Coconut Cream", "Cream of coconut", IngredientType.OTHER);
+                realm.copyToRealmOrUpdate(coconutCream);
                 Ingredient cinnamon = new Ingredient("Cinnamon", "Bark", IngredientType.SPICE);
+                realm.copyToRealmOrUpdate(cinnamon);
                 Ingredient heavyCream = new Ingredient("Heavy Cream", "High fat", IngredientType.DAIRY);
+                realm.copyToRealmOrUpdate(heavyCream);
                 Ingredient orangeFlowerWater = new Ingredient("Orange Flower Water", "Fragrant.", IngredientType.OTHER);
+                realm.copyToRealmOrUpdate(orangeFlowerWater);
                 Ingredient chocolateBitters = new Ingredient("Chocolate Bitters", "chocolate bitters", IngredientType.BITTERS);
+                realm.copyToRealmOrUpdate(chocolateBitters);
 
                 //Drinks
                 Drink oldFashioned = new Drink();

@@ -101,8 +101,8 @@ public class IngredientDetailActivity extends AppCompatActivity {
                 realm.executeTransaction(new Realm.Transaction() {
                     @Override
                     public void execute(@NonNull Realm realm) {
-                        RealmResults<Drink> result =
-                                realm.where(Drink.class).equalTo("id", ingredient.getId()).findAll();
+                        RealmResults<Ingredient> result =
+                                realm.where(Ingredient.class).equalTo("id", ingredient.getId()).findAll();
                         result.deleteAllFromRealm();
                     }
                 });
