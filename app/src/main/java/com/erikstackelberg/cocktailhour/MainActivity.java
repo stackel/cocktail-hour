@@ -80,9 +80,15 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_insert_data) {
+        if (id == R.id.action_insert_basic_cocktails) {
             DrinkFactory dataFactory = new DrinkFactory();
-            dataFactory.insertData();
+            dataFactory.insertBasicData();
+            return true;
+        }
+
+        if (id == R.id.action_insert_my_data) {
+            DrinkFactory dataFactory = new DrinkFactory();
+            dataFactory.insertMyData();
             return true;
         }
 
