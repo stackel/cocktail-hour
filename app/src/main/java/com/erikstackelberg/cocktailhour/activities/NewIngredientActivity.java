@@ -34,6 +34,12 @@ public class NewIngredientActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_ingredient);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
         final String ingredientId = getIntent().getStringExtra("INGREDIENT_ID");
 
         if(ingredientId != null) {
@@ -46,10 +52,6 @@ public class NewIngredientActivity extends AppCompatActivity {
                 }
             }
         }
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ingredientNameEditText = (EditText) findViewById(R.id.new_ingredient_name_input);
         ingredientDescriptionEditText = (EditText) findViewById(R.id.new_ingredient_description_input);
