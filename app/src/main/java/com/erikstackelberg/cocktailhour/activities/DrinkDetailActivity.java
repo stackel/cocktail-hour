@@ -44,8 +44,9 @@ public class DrinkDetailActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(drink.getName());
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         RecyclerView recyclerView =
                 (RecyclerView) findViewById(R.id.drink_detail_ingredient_recycler_view);
@@ -59,9 +60,9 @@ public class DrinkDetailActivity extends AppCompatActivity {
                     }
                 });
 
-        recyclerView.setNestedScrollingEnabled(false);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getBaseContext());
         recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setNestedScrollingEnabled(false);
 
         recyclerView.setAdapter(drinkIngredientListAdapter);
 
