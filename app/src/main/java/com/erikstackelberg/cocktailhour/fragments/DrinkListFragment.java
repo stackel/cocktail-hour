@@ -36,7 +36,6 @@ public class DrinkListFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_drink_list, container, false);
 
-
         RecyclerView recyclerView = view.findViewById(R.id.drink_recycler_view);
 
         final DrinkListAdapter drinksAdapter = new DrinkListAdapter(getDrinks(Tag.ALL), true,
@@ -78,7 +77,7 @@ public class DrinkListFragment extends Fragment {
             realm.close();
         }
         realm = Realm.getDefaultInstance();
-        RealmResults<Drink> drinks = null;
+        RealmResults<Drink> drinks;
 
         switch (tag) {
             case ALL:

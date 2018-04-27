@@ -20,7 +20,7 @@ public enum IngredientType {
 
     private String friendlyName;
 
-    private IngredientType(String friendlyName){
+    IngredientType(String friendlyName){
         this.friendlyName = friendlyName;
     }
 

@@ -1,8 +1,6 @@
 package com.erikstackelberg.cocktailhour.data;
 
-import android.graphics.DashPathEffect;
 import android.support.annotation.NonNull;
-import android.support.v4.view.MarginLayoutParamsCompat;
 
 import com.erikstackelberg.cocktailhour.enums.IngredientType;
 import com.erikstackelberg.cocktailhour.enums.Tag;
@@ -12,7 +10,6 @@ import com.erikstackelberg.cocktailhour.models.DrinkIngredient;
 import com.erikstackelberg.cocktailhour.models.Ingredient;
 
 import io.realm.Realm;
-import io.realm.RealmList;
 
 public class DrinkFactory {
     private Realm realm;

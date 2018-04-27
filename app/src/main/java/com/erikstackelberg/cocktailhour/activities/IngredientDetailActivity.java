@@ -36,14 +36,23 @@ public class IngredientDetailActivity extends AppCompatActivity {
 
         final String ingredientId = getIntent().getStringExtra("INGREDIENT_ID");
 
-        ViewDataBinding binding = DataBindingUtil.setContentView(this,
-                R.layout.activity_ingredient_detail);
-
         realm = Realm.getDefaultInstance();
         ingredient = realm.where(Ingredient.class).equalTo("id", ingredientId).findFirst();
 
         if(ingredient == null)  {
             finish();
+        }
+
+        ViewDataBinding binding = DataBindingUtil.setContentView(this,
+                R.layout.activity_ingredient_detail);
+
+        binding.setVariable(BR.ingredient, ingredient);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(ingredient.getName());
+        setSupportActionBar(toolbar);
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
         RealmResults<Drink> allDrinks = realm.where(Drink.class).
@@ -66,14 +75,6 @@ public class IngredientDetailActivity extends AppCompatActivity {
 
         relatedDrinksRecyclerView.setAdapter(relatedDrinkListAdapter);
         relatedDrinksRecyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
-
-        binding.setVariable(BR.ingredient, ingredient);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(ingredient.getName());
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
     }
 
     @Override

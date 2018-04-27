@@ -24,15 +24,11 @@ import io.realm.RealmResults;
 
 public class DrinkListAdapter extends RealmRecyclerViewAdapter<Drink, DrinkListAdapter.DrinksViewHolder>  {
     private OnItemClickListener listener;
-    private RealmResults<Ingredient> allIngredients;
 
     public DrinkListAdapter(@Nullable OrderedRealmCollection<Drink> data,
                             boolean autoUpdate, OnItemClickListener listener) {
         super(data, autoUpdate);
         this.listener = listener;
-        Realm realm = Realm.getDefaultInstance();
-        allIngredients = realm.where(Ingredient.class).equalTo("hasIngredient", true).findAll();
-        realm.close();
     }
 
     @Override
