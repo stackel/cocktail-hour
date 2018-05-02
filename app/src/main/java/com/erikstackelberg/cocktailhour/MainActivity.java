@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 
 import com.erikstackelberg.cocktailhour.activities.NewDrinkActivity;
 import com.erikstackelberg.cocktailhour.activities.NewIngredientActivity;
+import com.erikstackelberg.cocktailhour.activities.SearchActivity;
 import com.erikstackelberg.cocktailhour.data.DrinkFactory;
 import com.erikstackelberg.cocktailhour.fragments.DrinkListFragment;
 import com.erikstackelberg.cocktailhour.fragments.IngredientsListFragment;
@@ -78,6 +79,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+
+        if (id == R.id.action_open_search) {
+            Intent intent = new Intent(this, SearchActivity.class);
+            startActivity(intent);
+            return true;
+        }
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_insert_basic_cocktails) {

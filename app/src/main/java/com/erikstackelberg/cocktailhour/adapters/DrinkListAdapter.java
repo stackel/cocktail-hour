@@ -19,6 +19,7 @@ import java.util.ArrayList;
 
 import io.realm.OrderedRealmCollection;
 import io.realm.Realm;
+import io.realm.RealmQuery;
 import io.realm.RealmRecyclerViewAdapter;
 import io.realm.RealmResults;
 
