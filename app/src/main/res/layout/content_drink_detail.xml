@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
+        <import type="android.view.View"/>
         <variable
             name="drink"
             type="com.erikstackelberg.cocktailhour.models.Drink"/>
@@ -43,19 +44,21 @@
             android:textStyle="bold"
             android:textColor="@color/colorAccent"
             android:text="@{drink.getAllTagsAsString()}"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:layout_marginBottom="16dp"/>
 
 
         <TextView
+            android:visibility="@{drink.description == null ? View.GONE : View.VISIBLE}"
             android:id="@+id/drink_detail_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="Classic cocktail"
             android:text="@{drink.description}"
-            android:textSize="16sp"
-            android:layout_marginTop="16dp" />
+            android:textSize="16sp" />
 
         <TextView
+            android:visibility="@{drink.instructions == null ? View.GONE : View.VISIBLE}"
             android:id="@+id/drink_detail_instructions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -64,11 +67,20 @@
             android:textSize="16sp" />
 
         <TextView
+            android:visibility="@{drink.variations == null ? View.GONE : View.VISIBLE}"
             android:id="@+id/drink_detail_variation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="Stir with ice."
+            tools:text="Double gin"
             android:text="@{drink.variations}"
+            android:textSize="16sp" />
+        <TextView
+            android:visibility="@{drink.tastingNotes == null ? View.GONE : View.VISIBLE}"
+            android:id="@+id/drink_detail_tasting_notes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Tastes good"
+            android:text="@{drink.tastingNotes}"
             android:textSize="16sp" />
 
         <android.support.v7.widget.RecyclerView

@@ -29,6 +29,10 @@ public class NewDrinkActivity extends AppCompatActivity {
 
     private EditText nameEditText;
     private EditText descriptionEditText;
+    private EditText instructionsEditText;
+    private EditText tastingNotesEditText;
+    private EditText variationsEditText;
+
 
     private Drink drink;
 
@@ -87,7 +91,10 @@ public class NewDrinkActivity extends AppCompatActivity {
         });
 
         nameEditText = (EditText) findViewById(R.id.new_drink_name_input);
-        descriptionEditText = (EditText) findViewById(R.id.new_drink_instructions_input);
+        descriptionEditText = (EditText) findViewById(R.id.new_drink_description_input);
+        instructionsEditText = (EditText) findViewById(R.id.new_drink_instructions_input);
+        variationsEditText = (EditText) findViewById(R.id.new_drink_variations_input);
+        tastingNotesEditText = (EditText) findViewById(R.id.new_drink_tasting_notes_input);
 
         final String drinkId = getIntent().getStringExtra("DRINK_ID");
 
@@ -102,7 +109,10 @@ public class NewDrinkActivity extends AppCompatActivity {
             }
             if(drink != null) {
                 nameEditText.setText(drink.getName());
-                descriptionEditText.setText(drink.getInstructions());
+                descriptionEditText.setText(drink.getDescription());
+                tastingNotesEditText.setText(drink.getTastingNotes());
+                instructionsEditText.setText(drink.getInstructions());
+                variationsEditText.setText(drink.getVariations());
                 ArrayList<DrinkIngredient> drinkIngredientsFromDatabase =
                         (ArrayList<DrinkIngredient>) realm.copyFromRealm(drink.getDrinkIngredients());
                 drinkIngredientAddListAdapter.setDrinkIngredients(drinkIngredientsFromDatabase);
@@ -133,7 +143,10 @@ public class NewDrinkActivity extends AppCompatActivity {
                     }
 
                     drink.setName(nameEditText.getText().toString());
-                    drink.setInstructions(descriptionEditText.getText().toString());
+                    drink.setInstructions(instructionsEditText.getText().toString());
+                    drink.setDescription(descriptionEditText.getText().toString());
+                    drink.setTastingNotes(tastingNotesEditText.getText().toString());
+                    drink.setVariations(variationsEditText.getText().toString());
                     drink.setDrinkIngredients(drinkIngredients);
                     realm.copyToRealmOrUpdate(drink);
                 }

@@ -46,8 +46,10 @@ public class SearchActivity extends AppCompatActivity {
 
             }
         });
-
+        realm = Realm.getDefaultInstance();
         searchResultsList.setAdapter(drinkListAdapter);
+        RealmResults<Drink> drinks = realm.where(Drink.class).findAllSorted("name");
+        drinkListAdapter.updateData(drinks);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getBaseContext());
         searchResultsList.setLayoutManager(layoutManager);
 
@@ -84,5 +86,11 @@ public class SearchActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-
+    @Override
+    protected void onDestroy() {
+        if(realm != null){
+            realm.close();
+        }
+        super.onDestroy();
+    }
 }
