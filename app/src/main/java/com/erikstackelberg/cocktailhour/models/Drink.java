@@ -103,9 +103,16 @@ public class Drink extends RealmObject {
     public ArrayList<Tag> getTags() {
         ArrayList<Tag> tagArray = new ArrayList<>();
         for (TagWrapper tagString : tags){
-            tagArray.add(Tag.valueOf(tagString.string));
+            tagArray.add(Tag.fromString(tagString.string));
         }
         return tagArray;
+    }
+
+    public void setTags(ArrayList<Tag> tags) {
+        this.tags.clear();
+        for(Tag tag : tags) {
+            this.tags.add(new TagWrapper(tag.toString()));
+        }
     }
 
     public void addTag(Tag tag) {
