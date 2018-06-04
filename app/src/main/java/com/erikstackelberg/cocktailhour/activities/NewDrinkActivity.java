@@ -6,14 +6,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.erikstackelberg.cocktailhour.R;
 import com.erikstackelberg.cocktailhour.adapters.DrinkIngredientAddListAdapter;
+import com.erikstackelberg.cocktailhour.enums.Tag;
 import com.erikstackelberg.cocktailhour.enums.Unit;
+import com.erikstackelberg.cocktailhour.layout.TagLayout;
 import com.erikstackelberg.cocktailhour.models.Drink;
 import com.erikstackelberg.cocktailhour.models.DrinkIngredient;
 import com.erikstackelberg.cocktailhour.models.Ingredient;
@@ -33,8 +38,9 @@ public class NewDrinkActivity extends AppCompatActivity {
     private EditText tastingNotesEditText;
     private EditText variationsEditText;
 
+    private Drink drink = new Drink();
 
-    private Drink drink;
+    private ArrayList<Tag> drinkTags = new ArrayList<>();
 
     Realm realm;
 
@@ -113,11 +119,51 @@ public class NewDrinkActivity extends AppCompatActivity {
                 tastingNotesEditText.setText(drink.getTastingNotes());
                 instructionsEditText.setText(drink.getInstructions());
                 variationsEditText.setText(drink.getVariations());
+                for(Tag tag : drink.getTags()) {
+                    drinkTags.add(tag);
+                }
+
                 ArrayList<DrinkIngredient> drinkIngredientsFromDatabase =
                         (ArrayList<DrinkIngredient>) realm.copyFromRealm(drink.getDrinkIngredients());
                 drinkIngredientAddListAdapter.setDrinkIngredients(drinkIngredientsFromDatabase);
             }
         }
+        TagLayout tagLayout = (TagLayout) findViewById(R.id.tagLayout);
+        LayoutInflater layoutInflater = getLayoutInflater();
+
+        for(Tag tag: Tag.values()) {
+
+
+
+            View tagView = layoutInflater.inflate(R.layout.tag_layout, null, false);
+
+            if(!drinkTags.contains(tag)) {
+                tagView.setAlpha(0.5f);
+            }
+            TextView tagTextView = tagView.findViewById(R.id.tagTextView);
+            tagTextView.setText(tag.toString());
+            tagLayout.addView(tagView);
+
+            tagTextView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    TextView textView = (TextView) view;
+                    Tag tag = Tag.fromString(textView.getText().toString());
+                    Log.i("",textView.getText().toString());
+                    View viewParent = (View) view.getParent();
+
+                    if(drinkTags.contains(tag)) {
+                        drinkTags.remove(tag);
+                        viewParent.setAlpha(0.5f);
+
+                    } else {
+                        drinkTags.add(tag);
+                        viewParent.setAlpha(1.0f);
+                    }
+                }
+            });
+        }
+
         Button saveDrinkButton = (Button) findViewById(R.id.new_drink_save);
         saveDrinkButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -148,6 +194,7 @@ public class NewDrinkActivity extends AppCompatActivity {
                     drink.setTastingNotes(tastingNotesEditText.getText().toString());
                     drink.setVariations(variationsEditText.getText().toString());
                     drink.setDrinkIngredients(drinkIngredients);
+                    drink.setTags(drinkTags);
                     realm.copyToRealmOrUpdate(drink);
                 }
             });

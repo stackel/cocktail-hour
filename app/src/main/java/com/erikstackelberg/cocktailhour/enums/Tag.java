@@ -2,7 +2,6 @@ package com.erikstackelberg.cocktailhour.enums;
 
 public enum Tag {
     ALL("All"),
-    HAS_INGREDIENTS("Has Ingredients"),
     TRIED("Tried"),
     FAVORITE("Favorite"),
     NOT_TRIED("Not Tried"),
@@ -21,4 +20,14 @@ public enum Tag {
     @Override public String toString(){
         return friendlyName;
     }
+
+    public static Tag fromString(String text) {
+        for (Tag b : Tag.values()) {
+            if (b.toString().equalsIgnoreCase(text)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("No constant with text " + text + " found");
+    }
+
 }
